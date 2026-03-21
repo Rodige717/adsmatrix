@@ -148,6 +148,21 @@ input:focus{border-color:rgba(232,255,71,0.35);}
 #loading{text-align:center;padding:32px;color:var(--muted);font-size:13px;}
 
 .left-inner > *{opacity:0;animation:fadeUp 0.4s forwards;}
+
+/* CREATOR */
+.creator-block{background:var(--card);border:1px solid var(--border2);border-radius:12px;overflow:hidden;}
+.creator-header{display:flex;align-items:center;gap:14px;padding:18px 18px 14px;}
+.creator-photo{width:56px;height:56px;border-radius:50%;object-fit:cover;border:2px solid rgba(232,255,71,0.3);flex-shrink:0;}
+.creator-info{flex:1;}
+.creator-name{font-family:'Syne',sans-serif;font-weight:800;font-size:15px;color:var(--white);margin-bottom:2px;}
+.creator-title{font-size:11px;color:var(--muted);margin-bottom:8px;}
+.creator-badges{display:flex;gap:6px;flex-wrap:wrap;}
+.creator-badge{background:rgba(232,255,71,0.07);border:1px solid rgba(232,255,71,0.15);border-radius:4px;padding:2px 8px;font-size:10px;font-weight:700;color:#e8ff47;}
+.creator-proof{background:var(--card2);border-top:1px solid var(--border2);padding:14px 18px;}
+.creator-proof-label{font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-bottom:4px;}
+.creator-proof-number{font-family:'Syne',sans-serif;font-weight:800;font-size:28px;color:var(--accent);line-height:1;margin-bottom:4px;}
+.creator-proof-sub{font-size:11px;color:var(--muted);}
+.creator-quote{padding:14px 18px;font-size:12px;color:#b0b0c8;line-height:1.6;font-style:italic;border-top:1px solid var(--border2);}
 .left-inner > *:nth-child(1){animation-delay:.05s}
 .left-inner > *:nth-child(2){animation-delay:.1s}
 .left-inner > *:nth-child(3){animation-delay:.15s}
@@ -368,6 +383,29 @@ input:focus{border-color:rgba(232,255,71,0.35);}
         <cite><strong>Julien Charlemont</strong> &nbsp;·&nbsp; Coach sportif &nbsp;·&nbsp; Budget 25€/jour</cite>
       </div>
 
+      <div class="divider"></div>
+
+      <!-- CREATEUR -->
+      <div class="creator-block">
+        <div class="creator-header">
+          <img src="https://raw.githubusercontent.com/Rodige717/adsmatrix/main/roman.png" alt="Roman Di Geronimo" class="creator-photo" onerror="this.style.display='none'">
+          <div class="creator-info">
+            <div class="creator-name">Roman Di Geronimo</div>
+            <div class="creator-title">Créateur de La Matrice des Décisions</div>
+            <div class="creator-badges">
+              <span class="creator-badge">8 ans Meta Ads</span>
+              <span class="creator-badge">Certifié Meta</span>
+            </div>
+          </div>
+        </div>
+        <div class="creator-proof">
+          <div class="creator-proof-label">Budget réel géré sur Meta Ads</div>
+          <div class="creator-proof-number">831 989,51€</div>
+          <div class="creator-proof-sub">137 347 441 impressions · des milliers de campagnes pilotées</div>
+        </div>
+        <div class="creator-quote">"J'utilise ce système à chaque décision depuis des années. Je l'ai formalisé pour que vous puissiez en faire autant."</div>
+      </div>
+
     </div>
   </div>
 
@@ -407,14 +445,14 @@ input:focus{border-color:rgba(232,255,71,0.35);}
       <div class="success-sub">Bienvenue. Votre accès est en route.</div>
       <div class="access-note">
         <strong>Vérifiez votre email dans les 2 prochaines minutes.</strong><br><br>
-        Vous recevrez votre lien d'accès personnel à La Matrice des Décisions. Si vous ne le trouvez pas, vérifiez vos spams ou contactez <strong><a href="mailto:romandige@gmail.com">romandige@gmail.com</a></strong>
+        Vous recevrez votre lien d'accès personnel à La Matrice des Décisions. Si vous ne le trouvez pas, vérifiez vos spams ou contactez <strong><a href="/cdn-cgi/l/email-protection#6c1e03010d0208050b092c0b010d0500420f0301"><span class="__cf_email__" data-cfemail="a1d3ceccc0cfc5c8c6c4e1c6ccc0c8cd8fc2cecc">[email&#160;protected]</span></a></strong>
       </div>
     </div>
   </div>
 
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 const STRIPE_PK = 'pk_live_51SwPfkDLMNC66FiN1uYXJtHR0KKDS6svbUOzMBl4dEWH3g7QDcuvITW8jVgCj2dF2Lz2BHs3R3QnMDLVWjvbYtUb00owymQbRg';
 const stripe = Stripe(STRIPE_PK);
 let paymentElement, clientSecret;
@@ -495,11 +533,4 @@ async function handlePayment() {
     btn.disabled = false;
     btn.classList.remove('loading');
   } else {
-    document.getElementById('form-wrap').style.display = 'none';
-    document.getElementById('success').classList.add('visible');
-    fbq('track','Purchase',{value:9.00,currency:'EUR',content_name:'La Matrice des Decisions'});
-  }
-}
-</script>
-</body>
-</html>
+    document.get
