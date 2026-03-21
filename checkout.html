@@ -33,112 +33,66 @@ fbq('track','InitiateCheckout',{value:9.00,currency:'EUR'});
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 body{background:var(--dark);color:var(--white);font-family:'DM Sans',sans-serif;min-height:100vh;}
-
 .page{display:grid;grid-template-columns:1.1fr 0.9fr;min-height:100vh;}
-
-/* LEFT */
 .left{background:var(--black);border-right:1px solid var(--border);overflow-y:auto;max-height:100vh;position:sticky;top:0;}
 .left::-webkit-scrollbar{width:3px;}
 .left::-webkit-scrollbar-thumb{background:var(--border2);}
 .left-inner{padding:44px 40px 60px;}
-
 .brand{display:flex;align-items:center;gap:8px;font-family:'Syne',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:32px;}
 .brand-dot{width:6px;height:6px;background:var(--accent);border-radius:50%;box-shadow:0 0 6px var(--accent);}
-
 .product-name{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(20px,2vw,28px);line-height:1.1;letter-spacing:-0.02em;margin-bottom:3px;}
 .product-tagline{font-size:12px;color:var(--muted);margin-bottom:18px;}
 .product-price-row{display:flex;align-items:baseline;gap:12px;margin-bottom:24px;}
 .product-price{font-family:'Syne',sans-serif;font-weight:800;font-size:48px;color:var(--accent);line-height:1;}
 .product-price-meta{font-size:12px;color:var(--muted);line-height:1.6;}
-
 .preview-label{font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;display:flex;align-items:center;gap:8px;}
 .preview-label::after{content:'';flex:1;height:1px;background:var(--border2);}
 
-/* CPL TABLE */
-.mini-table-card{background:var(--card);border:1px solid var(--border2);border-radius:10px;overflow:hidden;margin-bottom:8px;}
-.mini-table-header{background:var(--card2);padding:9px 14px;font-family:'Syne',sans-serif;font-weight:700;font-size:10px;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--border2);}
-.mini-table{width:100%;border-collapse:collapse;}
-.mini-table td{padding:8px 14px;font-size:12px;border-bottom:1px solid var(--border);color:#b0b0c8;vertical-align:middle;}
-.mini-table tr:last-child td{border-bottom:none;}
-.mini-table td:first-child{color:var(--white);font-weight:500;width:38%;}
-.mini-table td:nth-child(2){font-size:11px;color:var(--muted);}
-.mini-table td:last-child{text-align:right;font-weight:700;font-size:12px;}
-
-/* SCENARIOS */
-.scenarios-row{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:8px;}
-.scenario-mini{background:var(--card);border:1px solid var(--border2);border-radius:9px;padding:11px 13px;position:relative;overflow:hidden;}
-.scenario-mini::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;}
-.scenario-mini.s1::before{background:var(--red);}
-.scenario-mini.s2::before{background:var(--orange);}
-.scenario-mini.s3::before{background:#e8c947;}
-.scenario-mini.s4::before{background:var(--green);}
-.scenario-mini-icon{font-size:14px;margin-bottom:5px;}
-.scenario-mini-title{font-family:'Syne',sans-serif;font-weight:700;font-size:11px;color:var(--white);margin-bottom:3px;line-height:1.3;}
-.scenario-mini-action{font-size:11px;color:var(--muted);line-height:1.4;}
-.scenario-mini-action strong{color:var(--accent);}
-
-/* STRUCTURE */
-.struct-mini{background:var(--card);border:1px solid var(--border2);border-radius:9px;padding:13px;display:flex;flex-direction:column;align-items:center;gap:5px;margin-bottom:8px;}
-.struct-node-mini{background:var(--card2);border:1px solid rgba(232,255,71,0.15);border-radius:5px;padding:5px 14px;font-family:'Syne',sans-serif;font-weight:700;font-size:10px;color:var(--accent);}
-.struct-line-mini{width:1px;height:8px;background:var(--border2);}
-.struct-children-mini{display:flex;gap:5px;}
-.struct-child-mini{background:var(--card2);border:1px solid var(--border2);border-radius:5px;padding:5px 9px;font-size:10px;color:#9090a8;text-align:center;}
-
-/* BLUR PREVIEW */
-.blur-preview-wrap{background:var(--card);border:1px solid var(--border2);border-radius:10px;overflow:hidden;margin-bottom:8px;}
-.blur-preview-header{background:var(--card2);padding:9px 14px;font-family:"Syne",sans-serif;font-weight:700;font-size:10px;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--border2);}
-.blur-preview-inner{position:relative;overflow:hidden;}
-.blur-table{width:100%;border-collapse:collapse;}
-.blur-table th{background:var(--card2);padding:8px 12px;font-size:10px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--border2);border-right:1px solid var(--border2);text-align:left;}
-.blur-table th:last-child{border-right:none;}
-.blur-table td{padding:8px 12px;font-size:11px;border-bottom:1px solid var(--border);border-right:1px solid var(--border);color:#b0b0c8;vertical-align:middle;}
-.blur-table td:first-child{color:var(--white);font-weight:500;}
-.blur-table td:last-child{border-right:none;}
-.blur-table tr:last-child td{border-bottom:none;}
-.row-visible td{opacity:1;}
-.row-blur-1 td{opacity:0.55;filter:blur(2px);user-select:none;}
-.row-blur-2 td{opacity:0.35;filter:blur(3.5px);user-select:none;}
-.row-blur-3 td{opacity:0.2;filter:blur(5px);user-select:none;}
-.row-blur-1 td,.row-blur-2 td,.row-blur-3 td{color:var(--muted);}
-.blur-overlay{position:absolute;bottom:0;left:0;right:0;height:60px;background:linear-gradient(to bottom,transparent,var(--card));pointer-events:none;}
-.blur-caption{text-align:center;padding:8px 14px 10px;font-size:10px;color:var(--muted);border-top:1px solid var(--border2);font-style:italic;background:var(--card);}
+/* MOCKUP */
+.mockup-wrap{background:#0a0a0f;border:1px solid #1e1e2e;border-radius:10px;overflow:hidden;margin-bottom:16px;}
+.mockup-titlebar{background:#060608;border-bottom:1px solid #1e1e2e;padding:7px 12px;display:flex;align-items:center;justify-content:space-between;}
+.mockup-dot{width:5px;height:5px;border-radius:50%;}
+.mockup-brand{font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#404058;}
+.win-btn{width:9px;height:9px;border-radius:50%;}
+.mockup-body{display:grid;grid-template-columns:130px 1fr;}
+.mockup-sidebar{background:#060608;border-right:1px solid #1e1e2e;padding:10px 0;}
+.sidebar-section-label{font-size:8px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#303048;padding:8px 10px 4px;}
+.sidebar-row{display:flex;align-items:center;gap:6px;padding:5px 10px;font-size:10px;color:#505068;}
+.sidebar-row span:first-child{font-size:11px;}
+.sidebar-row.active{background:rgba(232,255,71,0.07);border-left:2px solid #e8ff47;color:#e8ff47;}
+.mockup-content{padding:14px 16px;background:#0f0f17;}
+.mockup-tag{display:inline-flex;align-items:center;background:rgba(232,255,71,0.07);border:0.5px solid rgba(232,255,71,0.2);border-radius:12px;padding:2px 8px;font-size:8px;font-weight:700;color:#e8ff47;margin-bottom:8px;}
+.mockup-title{font-family:'Syne',sans-serif;font-weight:800;font-size:15px;line-height:1.15;letter-spacing:-0.02em;color:#f0f0e8;margin-bottom:10px;}
+.mockup-sc-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:8px;}
+.mockup-sc{background:#14141e;border:0.5px solid #1e1e2e;border-radius:6px;padding:8px 10px;}
+.mockup-sc-icon{font-size:11px;margin-bottom:3px;}
+.mockup-sc-name{font-family:'Syne',sans-serif;font-weight:700;font-size:10px;color:#f0f0e8;margin-bottom:3px;}
+.mockup-sc-a1{font-size:9px;color:#707088;}
+.mockup-sc-ablur{font-size:9px;color:#252535;filter:blur(2px);margin-top:2px;}
+.mockup-table-wrap{background:#14141e;border:0.5px solid #1e1e2e;border-radius:6px;overflow:hidden;margin-bottom:6px;}
+.mockup-table-header{background:#1a1a26;padding:5px 10px;font-size:8px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#505068;border-bottom:0.5px solid #1e1e2e;}
+.mockup-table-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;}
+.mth{padding:4px 8px;font-size:8px;font-weight:700;color:#505068;background:#1a1a26;border-bottom:0.5px solid #1e1e2e;border-right:0.5px solid #1e1e2e;}
+.mth:last-child{border-right:none;}
+.mtd{padding:4px 8px;font-size:9px;color:#b0b0c8;border-bottom:0.5px solid #1e1e2e;border-right:0.5px solid #1e1e2e;}
+.mtd:last-child{border-right:none;}
+.mtd.muted{color:#404058;}
+.mtd.blurred{filter:blur(2.5px);color:#252535;}
+.mtd.blurred2{filter:blur(4px);color:#1a1a26;}
+.mtd.tc{text-align:center;}
+.mockup-sc-full{background:#14141e;border:0.5px solid #1e1e2e;border-radius:6px;overflow:hidden;}
+.mockup-sc-header{display:flex;align-items:center;gap:6px;padding:6px 10px;border-bottom:0.5px solid #1e1e2e;}
+.mockup-sc-header span:first-child{font-size:11px;}
+.mockup-sc-actions{padding:7px 10px;display:grid;gap:4px;}
+.mockup-sc-row{display:flex;align-items:center;gap:6px;}
+.mockup-sc-row.blurred-row{opacity:0.4;filter:blur(2px);}
+.mockup-sc-row.blurred-row2{opacity:0.2;filter:blur(3.5px);}
+.sc-num-mini{width:13px;height:13px;border-radius:50%;background:rgba(232,255,71,0.08);border:0.5px solid rgba(232,255,71,0.2);display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:800;color:#e8ff47;flex-shrink:0;}
+.mockup-caption{text-align:center;font-size:9px;color:#303048;font-style:italic;margin-top:8px;}
 
 /* COPILOTE */
-.copilote-block{
-  background:rgba(232,255,71,0.04);
-  border:1px solid rgba(232,255,71,0.15);
-  border-left:3px solid var(--accent);
-  border-radius:0 10px 10px 0;
-  padding:18px 20px;
-  margin:16px 0;
-}
-.copilote-quote{
-  font-family:'Syne',sans-serif;
-  font-weight:700;
-  font-size:13px;
-  color:var(--white);
-  line-height:1.55;
-  letter-spacing:-0.01em;
-}
-
-/* SCENARIO FULL CARDS */
-.scenarios-full{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:0;}
-.sc-card{background:var(--card);border:1px solid var(--border2);border-radius:10px;overflow:hidden;}
-.sc-header{display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid var(--border2);position:relative;}
-.sc-header::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;}
-.sc-red .sc-header::before{background:var(--red);}
-.sc-orange .sc-header::before{background:var(--orange);}
-.sc-yellow .sc-header::before{background:#e8c947;}
-.sc-green .sc-header::before{background:var(--green);}
-.sc-icon{font-size:14px;}
-.sc-title{font-family:'Syne',sans-serif;font-weight:700;font-size:11px;color:var(--white);}
-.sc-actions{padding:10px 12px;display:grid;gap:6px;}
-.sc-action{display:flex;align-items:center;gap:8px;}
-.sc-num{width:16px;height:16px;background:rgba(232,255,71,0.08);border:1px solid rgba(232,255,71,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:9px;color:var(--accent);flex-shrink:0;}
-.sc-text{font-size:11px;color:#b0b0c8;line-height:1.4;}
-.sc-action.blur-1 .sc-text{filter:blur(3px);opacity:0.5;user-select:none;color:var(--muted);}
-.sc-action.blur-2 .sc-text{filter:blur(5px);opacity:0.25;user-select:none;color:var(--muted);}
-.sc-action.blur-1 .sc-num,.sc-action.blur-2 .sc-num{opacity:0.3;}
+.copilote-block{background:rgba(232,255,71,0.04);border:1px solid rgba(232,255,71,0.15);border-left:3px solid var(--accent);border-radius:0 10px 10px 0;padding:18px 20px;margin:16px 0;}
+.copilote-quote{font-family:'Syne',sans-serif;font-weight:700;font-size:13px;color:var(--white);line-height:1.55;letter-spacing:-0.01em;}
 
 .divider{height:1px;background:var(--border2);margin:18px 0;}
 
@@ -161,9 +115,8 @@ body{background:var(--dark);color:var(--white);font-family:'DM Sans',sans-serif;
 .form-sub{font-size:13px;color:var(--muted);margin-bottom:22px;display:flex;align-items:center;gap:6px;}
 .form-sub svg{width:13px;height:13px;stroke:var(--green);stroke-width:2;fill:none;flex-shrink:0;}
 .form-group{margin-bottom:13px;}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
 label{display:block;font-size:10px;font-weight:700;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;}
-input[type=text],input[type=email]{width:100%;background:var(--card);border:1px solid var(--border2);border-radius:8px;padding:12px 14px;color:var(--white);font-family:'DM Sans',sans-serif;font-size:15px;transition:border-color 0.2s;outline:none;}
+input[type=email]{width:100%;background:var(--card);border:1px solid var(--border2);border-radius:8px;padding:12px 14px;color:var(--white);font-family:'DM Sans',sans-serif;font-size:15px;transition:border-color 0.2s;outline:none;}
 input::placeholder{color:#36364a;}
 input:focus{border-color:rgba(232,255,71,0.35);}
 .section-sep{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin:16px 0 12px;display:flex;align-items:center;gap:8px;}
@@ -183,7 +136,6 @@ input:focus{border-color:rgba(232,255,71,0.35);}
 .sec svg{width:11px;height:11px;stroke:var(--muted);stroke-width:2;fill:none;}
 .guarantee{background:rgba(232,255,71,0.03);border:1px solid rgba(232,255,71,0.1);border-radius:8px;padding:12px 16px;margin-top:12px;font-size:12px;color:#b0b0c8;display:flex;align-items:flex-start;gap:9px;line-height:1.6;}
 .guarantee svg{width:14px;height:14px;stroke:var(--accent);stroke-width:2;fill:none;flex-shrink:0;margin-top:2px;}
-
 .success-state{display:none;text-align:center;padding:20px 0;}
 .success-state.visible{display:block;}
 .success-icon{width:68px;height:68px;background:rgba(61,255,154,0.07);border:2px solid rgba(61,255,154,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 22px;animation:popIn 0.5s cubic-bezier(0.175,0.885,0.32,1.275);}
@@ -206,50 +158,12 @@ input:focus{border-color:rgba(232,255,71,0.35);}
 .left-inner > *:nth-child(8){animation-delay:.4s}
 @keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 
-
-/* CREATOR */
-.creator-block{background:var(--card);border:1px solid var(--border2);border-radius:14px;overflow:hidden;}
-.creator-photo-wrap{width:100%;height:340px;overflow:hidden;position:relative;}
-.creator-photo-wrap img{width:100%;height:100%;object-fit:cover;object-position:center 20%;display:block;}
-.creator-photo-overlay{position:absolute;bottom:0;left:0;right:0;height:100px;background:linear-gradient(to bottom,transparent,var(--card));}
-.creator-body{padding:20px 22px 22px;}
-.creator-name{font-family:'Syne',sans-serif;font-weight:800;font-size:20px;color:var(--white);margin-bottom:3px;}
-.creator-role{font-size:12px;color:var(--muted);margin-bottom:12px;}
-.creator-badges{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px;}
-.creator-badge{background:rgba(232,255,71,0.07);border:1px solid rgba(232,255,71,0.15);border-radius:4px;padding:3px 10px;font-size:10px;font-weight:700;color:#e8ff47;}
-.creator-bio{font-size:13px;color:#b0b0c8;line-height:1.7;margin-bottom:18px;}
-.creator-bio strong{color:var(--white);}
-.creator-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:18px;}
-.creator-stat{background:var(--card2);border:1px solid var(--border2);border-radius:10px;padding:12px 14px;}
-.creator-stat-num{font-family:'Syne',sans-serif;font-weight:800;font-size:22px;color:var(--accent);line-height:1;margin-bottom:4px;}
-.creator-stat-label{font-size:10px;color:var(--muted);line-height:1.4;}
-/* WHO BTN */
-.who-btn{width:100%;background:none;border:1px solid rgba(232,255,71,0.2);border-radius:8px;padding:12px;font-family:'Syne',sans-serif;font-weight:700;font-size:12px;color:#e8ff47;cursor:pointer;transition:background 0.2s;letter-spacing:0.02em;}
-.who-btn:hover{background:rgba(232,255,71,0.06);}
-/* MODAL */
-.who-modal{display:none;position:fixed;inset:0;z-index:999;align-items:center;justify-content:center;}
-.who-modal.open{display:flex;}
-.who-overlay{position:absolute;inset:0;background:rgba(0,0,0,0.8);}
-.who-panel{position:relative;background:#0f0f17;border:1px solid #252535;border-radius:16px;width:92%;max-width:560px;max-height:88vh;overflow:hidden;display:flex;flex-direction:column;z-index:1;}
-.who-header{display:flex;align-items:center;justify-content:space-between;padding:22px 26px;border-bottom:1px solid #1e1e2e;flex-shrink:0;}
-.who-title{font-family:'Syne',sans-serif;font-weight:800;font-size:17px;color:#f0f0e8;}
-.who-close{background:none;border:none;color:#606078;font-size:20px;cursor:pointer;line-height:1;padding:4px 6px;}
-.who-close:hover{color:#f0f0e8;}
-.who-body{padding:26px;overflow-y:auto;display:grid;gap:16px;}
-.who-body::-webkit-scrollbar{width:3px;}
-.who-body::-webkit-scrollbar-thumb{background:#252535;}
-.who-body p{font-size:14px;color:#b0b0c8;line-height:1.75;margin:0;}
-.who-body p strong{color:#f0f0e8;}
-.who-body ul{padding-left:20px;display:grid;gap:7px;margin:0;}
-.who-body li{font-size:14px;color:#b0b0c8;line-height:1.5;}
-.who-final{font-family:'Syne',sans-serif;font-weight:700;font-size:15px;color:#e8ff47 !important;text-align:center;padding:6px 0 2px;}
-
 @media(max-width:820px){
   .page{grid-template-columns:1fr;display:flex;flex-direction:column;}
   .left{max-height:none;position:relative;order:2;}
   .right{padding:28px 20px 32px;order:1;}
   .left-inner{padding:28px 20px 36px;}
-  .form-row{grid-template-columns:1fr;}
+  .mockup-body{grid-template-columns:100px 1fr;}
 }
 </style>
 <script type="text/javascript">
@@ -277,60 +191,156 @@ input:focus{border-color:rgba(232,255,71,0.35);}
         </div>
       </div>
 
-      <div class="preview-label">⚡ 4 scénarios · protocole d'action 48h</div>
+      <div class="preview-label">Aperçu de la formation</div>
 
-      <div class="scenarios-full">
-
-        <div class="sc-card sc-red">
-          <div class="sc-header">
-            <span class="sc-icon">🔴</span>
-            <span class="sc-title">Zéro lead</span>
+      <!-- DASHBOARD 1 -->
+      <div class="mockup-wrap">
+        <div class="mockup-titlebar">
+          <div style="display:flex;align-items:center;gap:6px;"><div class="mockup-dot" style="background:#e8ff47;"></div><span class="mockup-brand">La Matrice des Décisions</span></div>
+          <div style="display:flex;gap:5px;"><div class="win-btn" style="background:#ff5f57;"></div><div class="win-btn" style="background:#febc2e;"></div><div class="win-btn" style="background:#28c840;"></div></div>
+        </div>
+        <div class="mockup-body">
+          <div class="mockup-sidebar">
+            <div class="sidebar-section-label">Navigation</div>
+            <div class="sidebar-row active"><span>🧭</span> Introduction</div>
+            <div class="sidebar-row"><span>🎯</span> Référence</div>
+            <div class="sidebar-section-label">La Matrice</div>
+            <div class="sidebar-row"><span>📋</span> Structure</div>
+            <div class="sidebar-row"><span>⚡</span> Scénarios 48h</div>
+            <div class="sidebar-row"><span>📊</span> Tableau résumé</div>
+            <div class="sidebar-section-label">Compléments</div>
+            <div class="sidebar-row"><span>🎨</span> Angles Créas</div>
+            <div class="sidebar-row"><span>📈</span> Cas Pratiques</div>
           </div>
-          <div class="sc-actions">
-            <div class="sc-action visible"><span class="sc-num">1</span><span class="sc-text">Couper les ensembles à 0 lead</span></div>
-            <div class="sc-action blur-1"><span class="sc-num">2</span><span class="sc-text">████████████████████</span></div>
-            <div class="sc-action blur-2"><span class="sc-num">3</span><span class="sc-text">████████████████████</span></div>
+          <div class="mockup-content">
+            <div class="mockup-tag">✦ Système de décision publicitaire</div>
+            <div class="mockup-title">La Matrice<br>des <span style="color:#e8ff47;">Décisions</span></div>
+            <div class="mockup-sc-grid">
+              <div class="mockup-sc" style="border-top:2px solid #ff4f4f;">
+                <div class="mockup-sc-icon">🔴</div>
+                <div class="mockup-sc-name">Zéro lead</div>
+                <div class="mockup-sc-a1">Action 1 visible</div>
+                <div class="mockup-sc-ablur">Action 2 ████████</div>
+              </div>
+              <div class="mockup-sc" style="border-top:2px solid #3dff9a;">
+                <div class="mockup-sc-icon">🟢</div>
+                <div class="mockup-sc-name">CPL correct</div>
+                <div class="mockup-sc-a1">Action 1 visible</div>
+                <div class="mockup-sc-ablur">Action 2 ████████</div>
+              </div>
+            </div>
+            <div class="mockup-table-wrap">
+              <div class="mockup-table-header">📊 Résumé de la Matrice</div>
+              <div class="mockup-table-grid">
+                <div class="mth">CPL</div><div class="mth">Action 1</div><div class="mth">Action 2</div><div class="mth">Action 3</div>
+                <div class="mtd">✅ Exceptionnel</div><div class="mtd muted">Laisser 48h</div><div class="mtd muted">Angle validé</div><div class="mtd muted">Dupliquer</div>
+                <div class="mtd">⚠️ Acceptable</div><div class="mtd blurred">████████</div><div class="mtd blurred">████████</div><div class="mtd blurred">████████</div>
+                <div class="mtd">🔴 Trop élevé</div><div class="mtd blurred2">████████</div><div class="mtd blurred2">████████</div><div class="mtd blurred2">████████</div>
+              </div>
+            </div>
+            <div class="mockup-caption">Accès complet immédiatement après paiement</div>
           </div>
         </div>
-
-        <div class="sc-card sc-orange">
-          <div class="sc-header">
-            <span class="sc-icon">🟠</span>
-            <span class="sc-title">CPL trop élevé</span>
-          </div>
-          <div class="sc-actions">
-            <div class="sc-action visible"><span class="sc-num">1</span><span class="sc-text">Couper les ensembles au CPL trop élevé</span></div>
-            <div class="sc-action blur-1"><span class="sc-num">2</span><span class="sc-text">████████████████████</span></div>
-            <div class="sc-action blur-2"><span class="sc-num">3</span><span class="sc-text">████████████████████</span></div>
-          </div>
-        </div>
-
-        <div class="sc-card sc-yellow">
-          <div class="sc-header">
-            <span class="sc-icon">🟡</span>
-            <span class="sc-title">CPL acceptable</span>
-          </div>
-          <div class="sc-actions">
-            <div class="sc-action visible"><span class="sc-num">1</span><span class="sc-text">Laisser tourner encore 48h</span></div>
-            <div class="sc-action blur-1"><span class="sc-num">2</span><span class="sc-text">████████████████████</span></div>
-            <div class="sc-action blur-2"><span class="sc-num">3</span><span class="sc-text">████████████████████</span></div>
-          </div>
-        </div>
-
-        <div class="sc-card sc-green">
-          <div class="sc-header">
-            <span class="sc-icon">🟢</span>
-            <span class="sc-title">CPL correct / excellent</span>
-          </div>
-          <div class="sc-actions">
-            <div class="sc-action visible"><span class="sc-num">1</span><span class="sc-text">Laisser tourner encore 48h</span></div>
-            <div class="sc-action blur-1"><span class="sc-num">2</span><span class="sc-text">████████████████████</span></div>
-            <div class="sc-action blur-2"><span class="sc-num">3</span><span class="sc-text">████████████████████</span></div>
-          </div>
-        </div>
-
       </div>
-      <div class="blur-caption" style="border-radius:0 0 8px 8px;border:1px solid var(--border2);border-top:none;margin-top:-1px;">Accès complet immédiatement après paiement</div>
+
+      <!-- DASHBOARD 2 -->
+      <div class="mockup-wrap">
+        <div class="mockup-titlebar">
+          <div style="display:flex;align-items:center;gap:6px;"><div class="mockup-dot" style="background:#e8ff47;"></div><span class="mockup-brand">La Matrice des Décisions</span></div>
+          <div style="display:flex;gap:5px;"><div class="win-btn" style="background:#ff5f57;"></div><div class="win-btn" style="background:#febc2e;"></div><div class="win-btn" style="background:#28c840;"></div></div>
+        </div>
+        <div class="mockup-body">
+          <div class="mockup-sidebar">
+            <div class="sidebar-section-label">La Matrice</div>
+            <div class="sidebar-row"><span>📋</span> Structure</div>
+            <div class="sidebar-row active"><span>⚡</span> Scénarios 48h</div>
+            <div class="sidebar-row"><span>📊</span> Tableau résumé</div>
+            <div class="sidebar-section-label">Compléments</div>
+            <div class="sidebar-row"><span>🎨</span> Angles Créas</div>
+            <div class="sidebar-row"><span>📈</span> Cas Pratiques</div>
+          </div>
+          <div class="mockup-content">
+            <div class="mockup-title" style="font-size:13px;margin-bottom:3px;">⚡ La Matrice — 48h après lancement</div>
+            <div style="font-size:9px;color:#606078;margin-bottom:10px;">Chaque scénario correspond à une action précise.</div>
+            <div style="display:grid;gap:6px;margin-bottom:10px;">
+              <div class="mockup-sc-full" style="border-top:2px solid #ff4f4f;">
+                <div class="mockup-sc-header"><span>🔴</span><span style="font-family:'Syne',sans-serif;font-weight:700;font-size:11px;color:#f0f0e8;">Scénario 1 — Zéro lead</span></div>
+                <div class="mockup-sc-actions">
+                  <div class="mockup-sc-row"><div class="sc-num-mini">1</div><span style="font-size:10px;color:#b0b0c8;">✂️ Couper les ensembles à 0 lead</span></div>
+                  <div class="mockup-sc-row blurred-row"><div class="sc-num-mini">2</div><span style="font-size:10px;color:#404058;">🚀 ████████████████████</span></div>
+                  <div class="mockup-sc-row blurred-row2"><div class="sc-num-mini">3</div><span style="font-size:10px;color:#404058;">⏳ ████████████</span></div>
+                </div>
+              </div>
+              <div class="mockup-sc-full" style="border-top:2px solid #3dff9a;">
+                <div class="mockup-sc-header"><span>🟢</span><span style="font-family:'Syne',sans-serif;font-weight:700;font-size:11px;color:#f0f0e8;">Scénario 4 — CPL correct / excellent</span></div>
+                <div class="mockup-sc-actions">
+                  <div class="mockup-sc-row"><div class="sc-num-mini">1</div><span style="font-size:10px;color:#b0b0c8;">✅ Laisser tourner encore 48h</span></div>
+                  <div class="mockup-sc-row blurred-row"><div class="sc-num-mini">2</div><span style="font-size:10px;color:#404058;">🖼️ ████████████████████</span></div>
+                  <div class="mockup-sc-row blurred-row2"><div class="sc-num-mini">3</div><span style="font-size:10px;color:#404058;">📋 ████████████</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="mockup-table-wrap">
+              <div class="mockup-table-header">📈 Cas pratique 1</div>
+              <div style="display:grid;grid-template-columns:70px repeat(4,1fr);">
+                <div class="mth">Ensemble</div><div class="mth tc">J0</div><div class="mth tc">J+2</div><div class="mth tc">J+4</div><div class="mth tc">J+6</div>
+                <div class="mtd">A (Angle 1)</div><div class="mtd tc">🔵</div><div class="mtd tc" style="color:#ff4f4f;">🚫→🔴</div><div class="mtd tc muted">—</div><div class="mtd tc muted">—</div>
+                <div class="mtd">C (Angle 3)</div><div class="mtd tc">🔵</div><div class="mtd tc" style="color:#e8ff47;">⭐→🟢</div><div class="mtd tc muted">—</div><div class="mtd tc muted">—</div>
+                <div class="mtd">D (Angle 3)</div><div class="mtd tc muted">—</div><div class="mtd tc">🟣</div><div class="mtd tc" style="color:#e8ff47;">⭐→🟢</div><div class="mtd tc" style="color:#3dff9a;">👍→🟢</div>
+              </div>
+            </div>
+            <div class="mockup-caption">Accès complet immédiatement après paiement</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DASHBOARD 3 -->
+      <div class="mockup-wrap">
+        <div class="mockup-titlebar">
+          <div style="display:flex;align-items:center;gap:6px;"><div class="mockup-dot" style="background:#e8ff47;"></div><span class="mockup-brand">La Matrice des Décisions</span></div>
+          <div style="display:flex;gap:5px;"><div class="win-btn" style="background:#ff5f57;"></div><div class="win-btn" style="background:#febc2e;"></div><div class="win-btn" style="background:#28c840;"></div></div>
+        </div>
+        <div class="mockup-body">
+          <div class="mockup-sidebar">
+            <div class="sidebar-section-label">La Matrice</div>
+            <div class="sidebar-row"><span>⚡</span> Scénarios 48h</div>
+            <div class="sidebar-row"><span>📊</span> Tableau résumé</div>
+            <div class="sidebar-section-label">Compléments</div>
+            <div class="sidebar-row active"><span>🎨</span> Angles Créas</div>
+            <div class="sidebar-row"><span>📈</span> Cas Pratiques</div>
+          </div>
+          <div class="mockup-content">
+            <div class="mockup-title" style="font-size:13px;margin-bottom:3px;">🎨 Règles de décision — Angles créas</div>
+            <div style="font-size:9px;color:#606078;margin-bottom:10px;">Le CPL dicte le statut de l'angle. Pas l'intuition.</div>
+            <div style="display:grid;gap:5px;margin-bottom:10px;">
+              <div style="display:flex;align-items:center;gap:8px;padding:7px 10px;background:#14141e;border:0.5px solid #1e1e2e;border-radius:6px;">
+                <span style="font-size:10px;color:#b0b0c8;flex:1;">CPL excellent ou correct</span>
+                <span style="color:#606078;font-size:11px;font-weight:700;">→</span>
+                <div style="background:rgba(61,255,154,0.07);border:0.5px solid rgba(61,255,154,0.2);border-radius:4px;padding:3px 8px;"><span style="font-size:10px;font-weight:700;color:#3dff9a;">✅ Angle validé</span></div>
+              </div>
+              <div style="display:flex;align-items:center;gap:8px;padding:7px 10px;background:#14141e;border:0.5px solid #1e1e2e;border-radius:6px;">
+                <span style="font-size:10px;color:#b0b0c8;flex:1;">CPL acceptable</span>
+                <span style="color:#606078;font-size:11px;font-weight:700;">→</span>
+                <div style="background:rgba(255,159,71,0.07);border:0.5px solid rgba(255,159,71,0.2);border-radius:4px;padding:3px 8px;"><span style="font-size:10px;font-weight:700;color:#ff9f47;">⚠️ Re-tester</span></div>
+              </div>
+              <div style="display:flex;align-items:center;gap:8px;padding:7px 10px;background:#14141e;border:0.5px solid #1e1e2e;border-radius:6px;">
+                <span style="font-size:10px;color:#b0b0c8;flex:1;">CPL trop élevé ou nul</span>
+                <span style="color:#606078;font-size:11px;font-weight:700;">→</span>
+                <div style="background:rgba(255,79,79,0.07);border:0.5px solid rgba(255,79,79,0.2);border-radius:4px;padding:3px 8px;"><span style="font-size:10px;font-weight:700;color:#ff4f4f;">🔴 Éviter</span></div>
+              </div>
+            </div>
+            <div style="background:rgba(255,159,71,0.04);border:0.5px solid rgba(255,159,71,0.2);border-radius:6px;padding:10px 12px;margin-bottom:8px;">
+              <div style="font-size:9px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#ff9f47;margin-bottom:7px;">🏆 Règle d'or — Scale</div>
+              <div style="display:grid;gap:4px;">
+                <div style="display:flex;align-items:center;gap:6px;"><div class="sc-num-mini">1</div><span style="font-size:10px;color:#b0b0c8;">Maximum <strong style="color:#f0f0e8;">+20%</strong> — jamais plus</span></div>
+                <div style="display:flex;align-items:center;gap:6px;opacity:0.35;filter:blur(2px);"><div class="sc-num-mini">2</div><span style="font-size:10px;color:#606078;">████████████████████████</span></div>
+                <div style="display:flex;align-items:center;gap:6px;opacity:0.15;filter:blur(3.5px);"><div class="sc-num-mini">3</div><span style="font-size:10px;color:#606078;">█████████████████</span></div>
+              </div>
+            </div>
+            <div class="mockup-caption">Accès complet immédiatement après paiement</div>
+          </div>
+        </div>
+      </div>
 
       <div class="copilote-block">
         <div class="copilote-quote">"Un système que vous consultez à chaque décision — pas un guide, un copilote permanent."</div>
@@ -339,10 +349,15 @@ input:focus{border-color:rgba(232,255,71,0.35);}
       <div class="divider"></div>
 
       <div class="includes">
-        <div class="item"><div class="tick"><svg viewBox="0 0 12 12"><polyline points="1.5,6 5,9.5 10.5,2.5"/></svg></div><span>La Matrice complète : chaque scénario avec les actions exactes à prendre</span></div>
-        <div class="item"><div class="tick"><svg viewBox="0 0 12 12"><polyline points="1.5,6 5,9.5 10.5,2.5"/></svg></div><span>La structure de campagne définitive validée pour la prospection Meta</span></div>
-        <div class="item"><div class="tick"><svg viewBox="0 0 12 12"><polyline points="1.5,6 5,9.5 10.5,2.5"/></svg></div><span>Les angles créas qui divisent par 5 votre CPL</span></div>
-        <div class="item"><div class="tick"><svg viewBox="0 0 12 12"><polyline points="1.5,6 5,9.5 10.5,2.5"/></svg></div><span>La méthode pour créer des pubs gagnantes en 30 secondes</span></div>
+        <div class="item"><div class="tick"><svg viewBox="0 0 12 12"><polyline points="1.5,6 5,9.5 10.5,2.5"/></svg></div><span>Vous ne restez plus jamais bloqué devant une campagne</span></div>
+        <div class="item"><div class="tick"><svg viewBox="0 0 12 12"><polyline points="1.5,6 5,9.5 10.5,2.5"/></svg></div><span>Vous gérez vos campagnes comme un media buyer pro</span></div>
+        <div class="item"><div class="tick"><svg viewBox="0 0 12 12"><polyline points="1.5,6 5,9.5 10.5,2.5"/></svg></div><span>Vous créez des pubs gagnantes en 30 secondes</span></div>
+        <div class="item"><div class="tick"><svg viewBox="0 0 12 12"><polyline points="1.5,6 5,9.5 10.5,2.5"/></svg></div><span>Vous débloquez votre prospection</span></div>
+      </div>
+
+      <div style="background:rgba(232,255,71,0.03);border:1px solid rgba(232,255,71,0.12);border-radius:10px;padding:16px 18px;margin-top:14px;">
+        <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:12px;color:#e8ff47;margin-bottom:6px;">Pourquoi 9€ ?</div>
+        <div style="font-size:13px;color:#b0b0c8;line-height:1.6;font-style:italic;">9€ parce que je veux que vous l'achetiez, l'utilisiez, et que vous me disiez si ça a changé quelque chose. C'est tout.</div>
       </div>
 
       <div class="divider"></div>
@@ -353,80 +368,10 @@ input:focus{border-color:rgba(232,255,71,0.35);}
         <cite><strong>Julien Charlemont</strong> &nbsp;·&nbsp; Coach sportif &nbsp;·&nbsp; Budget 25€/jour</cite>
       </div>
 
-
-      <div class="divider"></div>
-
-      <!-- CREATOR -->
-      <div class="creator-block">
-        <div class="creator-photo-wrap">
-          <img src="https://raw.githubusercontent.com/Rodige717/adsmatrix/main/roman.png" alt="Roman Di Geronimo" onerror="this.parentElement.style.display='none'">
-          <div class="creator-photo-overlay"></div>
-        </div>
-        <div class="creator-body">
-          <div class="creator-name">Roman Di Geronimo</div>
-          <div class="creator-role">Créateur de La Matrice des Décisions</div>
-          <div class="creator-badges">
-            <span class="creator-badge">8 ans Meta Ads</span>
-            <span class="creator-badge">Certifié Meta</span>
-            <span class="creator-badge">Media Buyer</span>
-          </div>
-          <div class="creator-bio">
-            <strong>Certifié Meta dès 2018</strong>, j'ai géré près d'un million d'euros de budget publicitaire. La Matrice des Décisions, c'est la formalisation de 8 ans de décisions terrain.
-          </div>
-          <div class="creator-stats">
-            <div class="creator-stat">
-              <div class="creator-stat-num">831 989€</div>
-              <div class="creator-stat-label">Budget réel géré sur Meta</div>
-            </div>
-            <div class="creator-stat">
-              <div class="creator-stat-num">137M+</div>
-              <div class="creator-stat-label">Impressions générées</div>
-            </div>
-            <div class="creator-stat">
-              <div class="creator-stat-num">8 ans</div>
-              <div class="creator-stat-label">D'expérience Meta Ads</div>
-            </div>
-            <div class="creator-stat">
-              <div class="creator-stat-num">2,50€</div>
-              <div class="creator-stat-label">Meilleur CPL (7 105 leads)</div>
-            </div>
-          </div>
-          <button class="who-btn" onclick="document.getElementById('who-modal').classList.add('open')">→ Pourquoi cette méthode existe ?</button>
-        </div>
-      </div>
-
     </div>
   </div>
 
-  <!-- MODAL -->
-  <div class="who-modal" id="who-modal">
-    <div class="who-overlay" onclick="document.getElementById('who-modal').classList.remove('open')"></div>
-    <div class="who-panel">
-      <div class="who-header">
-        <div class="who-title">Pourquoi cette méthode existe ?</div>
-        <button class="who-close" onclick="document.getElementById('who-modal').classList.remove('open')">✕</button>
-      </div>
-      <div class="who-body">
-        <p>J'ai commencé la prospection via Facebook Ads en <strong>2018</strong>, avant le Covid, et j'ai fait partie des premiers media buyers certifiés par Facebook sur la plateforme.</p>
-        <p>Je travaille principalement en tant qu'indépendant pour des agences, mandatées par leurs clients pour générer des prospects sous des contraintes très précises : un objectif clair, un budget donné, des attentes fortes.</p>
-        <p>Mon rôle a toujours été le même :<br><strong>👉 m'adapter aux conditions imposées et prendre les bonnes décisions.</strong></p>
-        <p>En 2026, j'ai dépensé près d'un million d'euros en publicité Facebook dans la génération de prospect, jusqu'à profiter d'une ligne de crédit de <strong>100 000€ avancée par Meta</strong>.</p>
-        <p>Depuis plus de 8 ans, j'ai ouvert le Gestionnaire de publicités tous les jours. J'ai dû prendre des décisions dans des dizaines de situations différentes :</p>
-        <ul>
-          <li>budgets restreints</li>
-          <li>clients aux profils variés</li>
-          <li>contraintes fortes</li>
-          <li>enjeux commerciaux réels</li>
-        </ul>
-        <p>Avec le temps, j'ai constaté une chose simple :</p>
-        <p><strong>👉 ce n'est pas l'industrie qui fait la différence<br>👉 ce sont les décisions prises, au bon moment</strong></p>
-        <p>J'ai donc décidé de compiler mes recherches, tests et conclusions dans une méthode de pilotage prête à l'emploi.</p>
-        <p class="who-final">Cette matrice est la formalisation de ces décisions.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- RIGHT -->
+  <!-- RIGHT — identique au repo GitHub -->
   <div class="right">
     <div id="form-wrap">
       <div class="form-title">Finaliser votre commande</div>
@@ -462,14 +407,14 @@ input:focus{border-color:rgba(232,255,71,0.35);}
       <div class="success-sub">Bienvenue. Votre accès est en route.</div>
       <div class="access-note">
         <strong>Vérifiez votre email dans les 2 prochaines minutes.</strong><br><br>
-        Vous recevrez votre lien d'accès personnel à La Matrice des Décisions. Si vous ne le trouvez pas, vérifiez vos spams ou contactez <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="196b767478777d707e7c597e74787075377a7674">[email&#160;protected]</a></strong>
+        Vous recevrez votre lien d'accès personnel à La Matrice des Décisions. Si vous ne le trouvez pas, vérifiez vos spams ou contactez <strong><a href="mailto:romandige@gmail.com">romandige@gmail.com</a></strong>
       </div>
     </div>
   </div>
 
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 const STRIPE_PK = 'pk_live_51SwPfkDLMNC66FiN1uYXJtHR0KKDS6svbUOzMBl4dEWH3g7QDcuvITW8jVgCj2dF2Lz2BHs3R3QnMDLVWjvbYtUb00owymQbRg';
 const stripe = Stripe(STRIPE_PK);
 let paymentElement, clientSecret;
@@ -550,4 +495,11 @@ async function handlePayment() {
     btn.disabled = false;
     btn.classList.remove('loading');
   } else {
-    document.getElementById('form-wrap')
+    document.getElementById('form-wrap').style.display = 'none';
+    document.getElementById('success').classList.add('visible');
+    fbq('track','Purchase',{value:9.00,currency:'EUR',content_name:'La Matrice des Decisions'});
+  }
+}
+</script>
+</body>
+</html>
