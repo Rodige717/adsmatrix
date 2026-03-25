@@ -9,7 +9,7 @@ exports.handler = async (event) => {
     const { amount, currency } = JSON.parse(event.body);
 
     const paymentIntent = await stripe.paymentIntents.create({
-      amount: amount || 900,
+      amount: amount || 100,
       currency: currency || 'eur',
       automatic_payment_methods: { enabled: true },
       description: 'La Matrice des Décisions',
