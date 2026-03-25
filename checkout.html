@@ -14,7 +14,7 @@ t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
 document,'script','https://connect.facebook.net/en_US/fbevents.js');
 fbq('init','928476153021459');
 fbq('track','PageView');
-fbq('track','InitiateCheckout',{value:9.00,currency:'EUR'});
+fbq('track','InitiateCheckout',{value:1.00,currency:'EUR'});
 </script>
 <style>
 :root{
@@ -227,7 +227,7 @@ input:focus{border-color:rgba(232,255,71,0.35);}
         <div class="product-name">La Matrice des Décisions</div>
         <div class="product-tagline">Système de prise de décision pour Meta Ads</div>
         <div class="product-price-row">
-          <div class="product-price">9€</div>
+          <div class="product-price">1€</div>
           <div class="product-price-meta">Paiement unique · Accès à vie</div>
         </div>
       </div>
@@ -481,7 +481,7 @@ input:focus{border-color:rgba(232,255,71,0.35);}
   <!-- RIGHT -->
   <div class="right">
     <div id="form-wrap">
-      <div class="form-title">Accédez à la Matrice — 9€</div>
+      <div class="form-title">Accédez à la Matrice</div>
       <div class="form-sub">
         <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
         Accès envoyé par email en moins de 2 minutes
@@ -494,7 +494,7 @@ input:focus{border-color:rgba(232,255,71,0.35);}
       <div id="loading">Chargement du formulaire de paiement...</div>
       <div id="payment-element"></div>
       <button class="btn-pay" id="pay-btn" onclick="handlePayment()" style="display:none;">
-        <span class="btn-text">Finaliser la commande →</span>
+        <span class="btn-text">Accéder pour 1€ →</span>
         <div class="spinner"></div>
       </button>
       <div class="error-msg" id="error-msg"></div>
@@ -531,7 +531,7 @@ async function initPayment() {
     const res = await fetch('/.netlify/functions/create-payment-intent', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({ amount: 900, currency: 'eur' })
+      body: JSON.stringify({ amount: 100, currency: 'eur' })
     });
     const data = await res.json();
     clientSecret = data.clientSecret;
@@ -604,7 +604,7 @@ async function handlePayment() {
   } else {
     document.getElementById('form-wrap').style.display = 'none';
     document.getElementById('success').classList.add('visible');
-    fbq('track','Purchase',{value:9.00,currency:'EUR',content_name:'La Matrice des Decisions'});
+    fbq('track','Purchase',{value:1.00,currency:'EUR',content_name:'La Matrice des Decisions'});
   }
 }
 </script>
